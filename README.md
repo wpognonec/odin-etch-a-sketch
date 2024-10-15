@@ -1,1 +1,1 @@
-# odin-etch-a-sketch
+Etch-a-Sketch app using html and javascript
