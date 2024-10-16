@@ -1,5 +1,8 @@
 
-for (let i = 1; i < 257; i++) {
+let button = document.querySelector("button");
+// button.addEventListener("click")
+
+for (let i = 1; i <= 256; i++) {
   const div = document.createElement("div");
   div.setAttribute("id", i)
   div.className = "box"
