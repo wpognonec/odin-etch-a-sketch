@@ -27,3 +27,7 @@ body {
 button {
   padding: 10px;
 }
+
+input {
+  width: 20%;
+}

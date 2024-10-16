@@ -1,16 +1,19 @@
-let gridSize = 16
-let changeButton = document.querySelector(".changeGrid");
 let clearButton = document.querySelector(".clearGrid");
-
-changeButton.addEventListener("click", () => {
-  document.querySelector(".wrapper").remove()
-  gridSize = parseInt(prompt("Please enter a grid size: "))
-  createGrid(gridSize)
-})
+let sizeDiv = document.querySelector(".sizeDiv");
+let input = document.querySelector("input");
 
 clearButton.addEventListener("click", () => {
   document.querySelector(".wrapper").remove()
-  createGrid(gridSize)
+  createGrid(parseInt(sizeDiv.textContent))
+})
+
+input.addEventListener("input", (e) => {
+  sizeDiv.textContent = e.target.value
+})
+
+input.addEventListener("mouseup", () => {
+  document.querySelector(".wrapper").remove()
+  createGrid(parseInt(sizeDiv.textContent))
 })
 
 
@@ -32,4 +35,4 @@ function createGrid(size) {
   body.appendChild(wrapper)
 }
 
-createGrid(16)
+createGrid(parseInt(sizeDiv.textContent))
