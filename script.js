@@ -16,7 +16,6 @@ input.addEventListener("mouseup", () => {
   createGrid(parseInt(sizeDiv.textContent))
 })
 
-
 function createGrid(size) {
   const body = document.querySelector("body")
   const wrapper = document.createElement("div");
@@ -27,11 +26,16 @@ function createGrid(size) {
     div.className = "box"
     div.style.width = `${960/size}px`
     div.style.height = `${960/size}px`
-    div.addEventListener("mouseenter", (e) => {
-      if (e.buttons === 1) div.style.background = "slategray"
-    })
     wrapper.appendChild(div)
   }
+  wrapper.addEventListener("mouseover", (e) => {
+    e.preventDefault()
+    if (e.buttons === 1) {
+      if (e.target.className !== "wrapper") {
+        e.target.style.backgroundColor = "slategray"
+      }
+    }
+  })
   body.appendChild(wrapper)
 }
 
