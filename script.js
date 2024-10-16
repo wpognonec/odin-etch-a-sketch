@@ -1,10 +1,18 @@
+let gridSize = 16
+let changeButton = document.querySelector(".changeGrid");
+let clearButton = document.querySelector(".clearGrid");
 
-let button = document.querySelector("button");
-button.addEventListener("click", () => {
+changeButton.addEventListener("click", () => {
   document.querySelector(".wrapper").remove()
-  const gridSize = parseInt(prompt("Please enter a grid size: "))
+  gridSize = parseInt(prompt("Please enter a grid size: "))
   createGrid(gridSize)
 })
+
+clearButton.addEventListener("click", () => {
+  document.querySelector(".wrapper").remove()
+  createGrid(gridSize)
+})
+
 
 function createGrid(size) {
   const body = document.querySelector("body")
@@ -16,13 +24,8 @@ function createGrid(size) {
     div.className = "box"
     div.style.width = `${960/size}px`
     div.style.height = `${960/size}px`
-    
-    div.addEventListener("mouseenter", () => {
-      div.style.background = "slategray"
-    })
-  
-    div.addEventListener("mouseleave", () => {
-      div.style.background = ""
+    div.addEventListener("mouseenter", (e) => {
+      if (e.buttons === 1) div.style.background = "slategray"
     })
     wrapper.appendChild(div)
   }
