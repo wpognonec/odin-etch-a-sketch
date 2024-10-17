@@ -3,6 +3,7 @@ let sizeDiv = document.querySelector(".sizeDiv");
 let input = document.querySelector("input#size");
 let color = document.querySelector("input#color");
 let randomColor = document.querySelector("#randomColor");
+let fade = document.querySelector("#fade");
 let gridSize = 16
 
 clearButton.addEventListener("click", () => {
@@ -47,11 +48,15 @@ function createGrid(size) {
         if (e.target.className !== "wrapper") {
           if (randomColor.checked) e.target.style.backgroundColor = getRandomColor()
           else e.target.style.backgroundColor = color.value
+          if (fade.checked) e.target.style.opacity = e.target.style.opacity ? parseFloat(e.target.style.opacity) + 0.1 : 0.1
+          else e.target.style.opacity = 1
+          
         }
       }
       if (e.buttons === 2) {
         if (e.target.className !== "wrapper") {
           e.target.style.backgroundColor = "white"
+          e.target.style.opacity = null
         }
       }
     })
