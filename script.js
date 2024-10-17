@@ -46,30 +46,6 @@ function createGrid(size) {
     })
   })
 
-  // wrapper.addEventListener("mousedown", (e) => {
-  //   if (e.buttons === 1) {
-  //     if (e.target.className !== "wrapper") {
-  //       e.target.style.backgroundColor = color.value
-  //     }
-  //   }
-  //   if (e.buttons === 2) {
-  //     if (e.target.className !== "wrapper") {
-  //       e.target.style.backgroundColor = "white"
-  //     }
-  //   }
-  // })
-  // wrapper.addEventListener("mouseover", (e) => {
-  //   if (e.buttons === 1) {
-  //     if (e.target.className !== "wrapper") {
-  //       e.target.style.backgroundColor = color.value
-  //     }
-  //   }
-  //   if (e.buttons === 2) {
-  //     if (e.target.className !== "wrapper") {
-  //       e.target.style.backgroundColor = "white"
-  //     }
-  //   }
-  // })
   body.appendChild(wrapper)
 }
 
