@@ -1,24 +1,34 @@
 let clearButton = document.querySelector(".clearGrid");
 let sizeDiv = document.querySelector(".sizeDiv");
 let input = document.querySelector("input#size");
-let color = document.querySelector("input#color")
+let color = document.querySelector("input#color");
+let randomColor = document.querySelector("#randomColor");
+let gridSize = 16
 
 clearButton.addEventListener("click", () => {
   document.querySelector(".wrapper").remove()
-  createGrid(parseInt(sizeDiv.textContent))
+  createGrid(gridSize)
 })
 
 input.addEventListener("input", (e) => {
-  sizeDiv.textContent = e.target.value
+  gridSize = parseInt(e.target.value)
+  sizeDiv.textContent = `Size: ${e.target.value}`
 })
 
 input.addEventListener("mouseup", () => {
   document.querySelector(".wrapper").remove()
-  createGrid(parseInt(sizeDiv.textContent))
+  createGrid(gridSize)
 })
 
+function getRandomColor() {
+  let r = Math.floor(Math.random() * 256)
+  let g = Math.floor(Math.random() * 256)
+  let b = Math.floor(Math.random() * 256)
+  return `rgb(${r},${g},${b})`
+}
+
 function createGrid(size) {
-  const body = document.querySelector("body")
+  const outer = document.querySelector(".outer")
   const wrapper = document.createElement("div");
   wrapper.className = "wrapper"
   wrapper.setAttribute("oncontextmenu", "return false;")
@@ -35,7 +45,8 @@ function createGrid(size) {
     wrapper.addEventListener(evt, (e) => {
       if (e.buttons === 1) {
         if (e.target.className !== "wrapper") {
-          e.target.style.backgroundColor = color.value
+          if (randomColor.checked) e.target.style.backgroundColor = getRandomColor()
+          else e.target.style.backgroundColor = color.value
         }
       }
       if (e.buttons === 2) {
@@ -46,7 +57,7 @@ function createGrid(size) {
     })
   })
 
-  body.appendChild(wrapper)
+  outer.appendChild(wrapper)
 }
 
-createGrid(parseInt(sizeDiv.textContent))
+createGrid(gridSize)

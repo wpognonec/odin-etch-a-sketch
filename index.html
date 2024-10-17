@@ -8,9 +8,18 @@
   <script src="script.js" defer></script>
 </head>
 <body ondragstart="return false;" ondrop="return false;">
-  <input id="size" type="range" min="16" max="100" value="16">
-  <input id="color" type="color">
-  <div class="sizeDiv">16</div>
-  <button class="clearGrid">Clear Grid</button>
+  <div class="leftMenu" style="text-align: center;">
+    <div class="sizeDiv">Size: 16</div>
+    <input id="size" type="range" min="16" max="100" value="16">
+    <input id="color" type="color">
+    <button class="clearGrid">Clear Grid</button>
+    <div class="randomColor">
+      <label for="randomColor">Random Color </label>
+      <input type="checkbox" name="randomColor" id="randomColor">
+    </div>
+  </div>
+  <div class="outer">
+
+  </div>
 </body>
 </html>
